@@ -1,5 +1,7 @@
 import requests
 
+from .data import Student
+
 api_key = "52c1f2b6cb582150fc1e39cf20acf1e9"
 OWM_Endpoint = "api.openweathermap.org/data/2.5/weather"
 LAT, LON = 9.646298, -95.588217
@@ -15,3 +17,6 @@ response.raise_for_status()
 data = response.json()
 print(data)
 # print(response.status_code)
+
+Aza = Student("Azamat", 2022, 4.00)
+print(Aza.getName())
