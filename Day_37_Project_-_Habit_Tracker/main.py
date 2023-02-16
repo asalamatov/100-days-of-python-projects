@@ -2,6 +2,9 @@ import requests
 from datetime import datetime
 today = datetime.now()
 
+# check results of this program:
+# https://pixe.la/v1/users/azamatick/graphs/graph1.html
+
 TOKEN = "1234567888888765432"
 USERNAME = "azamatick"
 GRAPH_ID = "graph1"
