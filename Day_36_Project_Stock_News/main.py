@@ -1,3 +1,7 @@
+import os
+from twilio.rest import Client
+import requests
+
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
@@ -7,11 +11,18 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 ALPHA_API_KEY = "FT208AHHQ0T5Q51B"
 NEWS_API_KEY = "00f05a3bae61406fa8d87befb4b8ae7b"
 
+# twilio info
+
+TWILIO_SID = "AC6e3872c29cf05e9229dca6f46890f428"
+TWILIO_AUTH_TOKEN = "b26831e423fc9195030c178248b2dbbd"
+TWILIO_PHONE = "+1 888 487 6104"
+MY_PHONE_NUMBER= "your phone number"
+
     ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 
 #TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in dictionary.items()]
-import requests
+
 
 # replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 url = f'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={STOCK_NAME}&apikey={ALPHA_API_KEY}'
@@ -22,8 +33,8 @@ data_list = [v for (k,v) in data.items()]
 this_week_data = data_list[0]
 previous_week_data = data_list[1]
 
-print(this_week_data)
-print(previous_week_data)
+#print(this_week_data)
+#print(previous_week_data)
 #TODO 2. - Get the day before yesterday's closing stock price
 this_week_closing = float(this_week_data['4. close'])
 previous_week_closing = float(previous_week_data['4. close'])
@@ -32,10 +43,10 @@ print(this_week_closing)
 print(previous_week_closing)
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
 difference_between_two_weeks_stocks = abs(this_week_closing-previous_week_closing)
-print(difference_between_two_weeks_stocks)
+#print(difference_between_two_weeks_stocks)
 #TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
 percentage_difference_between_two_weeks_stocks = difference_between_two_weeks_stocks/this_week_closing*100
-print(percentage_difference_between_two_weeks_stocks)
+#print(percentage_difference_between_two_weeks_stocks)
 #TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 if (percentage_difference_between_two_weeks_stocks>5):
     print("Great News")
@@ -53,9 +64,9 @@ last_3_news_about_Tesla = dict()
 for i in range(3):
     last_3_news_about_Tesla[data_news[i]["title"]] = data_news[0]["url"]
 
-print(data_news[0]["title"])
-print(data_news[0]["url"])
-print(last_3_news_about_Tesla)
+#print(data_news[0]["title"])
+#print(data_news[0]["description"])
+#print(last_3_news_about_Tesla)
 
 for k,v in last_3_news_about_Tesla.items():
     print(k, "\n >>>>", v , "\n")
@@ -68,7 +79,11 @@ for k,v in last_3_news_about_Tesla.items():
 #TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
 
 #TODO 9. - Send each article as a separate message via Twilio. 
+client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
+for k,v in last_3_news_about_Tesla.items():
+    message = client.messages.create(body=f'Headline: {k}.\n>>{v}',from_= TWILIO_PHONE,to = MY_PHONE_NUMBER)
+print(message.status)
 
 
 #Optional TODO: Format the message like this: 
