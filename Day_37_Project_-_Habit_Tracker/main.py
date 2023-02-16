@@ -1,63 +1,89 @@
 import requests
 from datetime import datetime
+today = datetime.now()
 
 TOKEN = "1234567888888765432"
 USERNAME = "azamatick"
 GRAPH_ID = "graph1"
-
 pixela_endpoint = "https://pixe.la/v1/users"
-
-user_params = {
-    "token": TOKEN,
-    "username": USERNAME,
-    "agreeTermsOfService": "yes",
-    "notMinor": "yes",
-}
-
-response = requests.post(url=pixela_endpoint, json=user_params)
-#print(response.text)
-
-graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
-
-graph_config = {
-    "id": GRAPH_ID,
-    "name": "Quran Memorization Graph",
-    "unit": "lines",
-    "type": "float",
-    "color": "shibafu",
-}
-
 headers={
     "X-USER-TOKEN":TOKEN,
 }
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-#print(response.text)
+def main():
+    create_new_pixela()
+    create_new_graph(name="Quran Memorization Graph", unit="lines", type="float", color="shibafu")
+    # go and check results on https://pixe.la/v1/users/azamatick/graphs/graph1.html
+    add_pixels_today(24)
+    delete_pixels("20230212")
+    update_pixels(6, "20230214")
 
-# go and check results on https://pixe.la/v1/users/azamatick/graphs/graph1.html
+def create_new_pixela():
+    user_params = {
+        "token": TOKEN,
+        "username": USERNAME,
+        "agreeTermsOfService": "yes",
+        "notMinor": "yes",
+    }
 
-pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+    response = requests.post(url=pixela_endpoint, json=user_params)
+    print(response.text)
 
-today = datetime.now()
-print(today.strftime("%Y%m%d"))
+def create_new_graph(name, unit, type, color):
+    """Creates a new Graph:
+    inputs:
+    name --string--: name the graph
+    unit --string--: name the unit, ex: meters, KM, pages
+    type --string--: int or float
+    color --string--: 'shibafu'(green), 'momiji'(red), 'sora'(blue), 'ichou'(yellow), 'ajisai'(purple), 'kuro'(black) """
+    graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
-today = datetime(year=2023, month=2, day=14)
+    graph_config = {
+        "id": GRAPH_ID,
+        "name": name,
+        "unit": unit,
+        "type": type,
+        "color": color,
+    }
 
-pixel_config = {
-    "date": today.strftime("%Y%m%d"),
-    "quantity" : "5",
-}
-"""
-response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
-print(response.text)
-"""
-# delete_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
-# response = requests.delete(url=delete_pixel_endpoint, headers=headers)
 
-update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
-new_pixel_data = {
-    "quantity": "3",
-}
 
-response = requests.put(url = update_endpoint, json=new_pixel_data, headers=headers)
-print(response.text)
+    response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+    print(response.text)
+
+def add_pixels_today(quantity):
+    pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+
+    today = datetime.now()
+    #print(today.strftime("%Y%m%d"))
+
+    #today = datetime(year=2023, month=2, day=12)
+
+    pixel_config = {
+        "date": today.strftime("%Y%m%d"),
+        "quantity" : str(quantity),
+    }
+    
+    response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+    print(response.text)
+
+def delete_pixels(date):
+    """srting date: yyyyMMdd"""
+    delete_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
+    response = requests.delete(url=delete_pixel_endpoint, headers=headers)
+    print(response.text)
+
+def update_pixels(quantity, date):
+    """srting date: yyyyMMdd"""
+    update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{date}"
+    new_pixel_data = {
+        "quantity": str(quantity),
+    }
+
+    response = requests.put(url = update_endpoint, json=new_pixel_data, headers=headers)
+    print(response.text)
+
+
+
+
+main()
