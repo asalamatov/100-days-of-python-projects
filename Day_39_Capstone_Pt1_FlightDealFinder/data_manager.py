@@ -14,6 +14,7 @@ class DataManager:
     def get_destionation_data(self):
         data = requests.get(url=f"{sheety_endpoint}", headers=headers).json()
         self.destination_data = data["prices"]
+        print("DESTINATION DATA: ", self.destination_data)
         return self.destination_data
     
     
@@ -26,3 +27,5 @@ class DataManager:
             }
             response = requests.put(url=f"{sheety_endpoint}/{city['id']}", json=new_data)
             print(response)
+            print("DESTINATION DATA: ", self.destination_data)
+            

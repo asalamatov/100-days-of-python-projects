@@ -16,4 +16,5 @@ if sheet_data[0]["iataCode"]=="":
 
 
 data = DataManager()
+data_manager.destination_data = sheet_data
 data.update_destination_codes()
