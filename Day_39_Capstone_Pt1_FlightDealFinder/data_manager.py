@@ -1,31 +1,29 @@
 import requests
 
-sheety_endpoint = "https://api.sheety.co/8770d1eda53a01f2846505862b8a3d48/flightDeals/prices"
-
+sheety_endpoint = "https://api.sheety.co/8770d1eda53a01f2846505862b8a3d48/flightDeals12345/prices"
 headers = {
-    "Authorization": "Bearer qwertyuiopasdfghjklzxcvbnm",
+    'Authorization': 'Bearer kjlbshvebssahbfhclshfwiuyri3ufebwsidfb'
 }
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     
-    def __init__(self) -> None:
+    def __init__(self):
         self.destination_data = {}
         
-    def get_destionation_data(self):
-        data = requests.get(url=f"{sheety_endpoint}", headers=headers).json()
+    def get_destination_data(self):
+        data = requests.get(url=sheety_endpoint, headers=headers).json()
+        print(data)
         self.destination_data = data["prices"]
-        print("DESTINATION DATA: ", self.destination_data)
         return self.destination_data
     
     
     def update_destination_codes(self):
         for city in self.destination_data:
             new_data = {
-                "prices": {
+                "price": {
                     "iataCode":city["iataCode"]
                 }
             }
-            response = requests.put(url=f"{sheety_endpoint}/{city['id']}", json=new_data)
-            print(response)
-            print("DESTINATION DATA: ", self.destination_data)
+            response = requests.post(url=f"{sheety_endpoint}/{city['id']}", json=new_data, headers=headers)
+            print(response.text)
             
