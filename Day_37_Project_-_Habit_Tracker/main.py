@@ -17,9 +17,10 @@ def main():
     create_new_pixela()
     create_new_graph(name="Quran Memorization Graph", unit="lines", type="float", color="shibafu")
     # go and check results on https://pixe.la/v1/users/azamatick/graphs/graph1.html
-    add_pixels_today(24)
-    delete_pixels("20230212")
-    update_pixels(6, "20230214")
+    lines_today = int(input("How many pages did you memorize today?\n >>"))
+    add_pixels_today(lines_today)
+    #delete_pixels("20230212")
+    # update_pixels(25, "20230217")
 
 def create_new_pixela():
     user_params = {
