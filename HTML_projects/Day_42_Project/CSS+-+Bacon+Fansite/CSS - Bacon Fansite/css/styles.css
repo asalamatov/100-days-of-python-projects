@@ -1,0 +1,20 @@
+/* tag selectors*/
+h1 {
+    color: blue;
+}
+
+img:hover{
+    width: 300px;
+}
+
+/* class selectors */
+.bacon {
+    background-color: green ;
+    width: 200px;
+}
+
+/* id selectors*/
+
+#heading {
+    color: red;
+}
