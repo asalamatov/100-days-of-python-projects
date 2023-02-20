@@ -36,6 +36,10 @@ a:link, a:visited{
     height: 30px;
 }
 
+.btn:hover {
+    background-color:#4FA095
+}
+
 .even-row {
     background-color: #e4f9f5;
 }
@@ -124,7 +128,7 @@ hr {
 }
 
 .gif {
-    width: 200px;
+    width: 300px;
 
 }
 
@@ -214,6 +218,7 @@ th, td {
 }
 
 .footer-link {
+    font-size: 1rem;
     margin: 3%;
 }
 
