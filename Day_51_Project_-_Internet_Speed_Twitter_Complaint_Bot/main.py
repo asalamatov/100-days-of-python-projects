@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
-TWITTER_EMAIL = "unnecessary.acc2004@gmail.com"
-TWITTER_PASSWORD = "AZAMAT2004"
+TWITTER_EMAIL = "your.email.com"
+TWITTER_PASSWORD = "YourPassword"
 
 PROMISED_DOWN = 150
 PROMISED_UP = 10
