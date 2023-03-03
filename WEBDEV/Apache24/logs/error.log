@@ -1,0 +1,28 @@
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 13:21:01.927761 2023] [mpm_winnt:notice] [pid 23548:tid 312] AH00455: Apache/2.4.55 (Win64) configured -- resuming normal operations
+[Thu Mar 02 13:21:01.928762 2023] [mpm_winnt:notice] [pid 23548:tid 312] AH00456: Apache Lounge VS17 Server built: Feb  9 2023 09:58:39
+[Thu Mar 02 13:21:01.928762 2023] [core:notice] [pid 23548:tid 312] AH00094: Command line: 'C:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Thu Mar 02 13:21:01.934761 2023] [mpm_winnt:notice] [pid 23548:tid 312] AH00418: Parent: Created child process 25924
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 13:21:03.998534 2023] [mpm_winnt:notice] [pid 25924:tid 328] AH00354: Child: Starting 64 worker threads.
+[Thu Mar 02 13:31:40.498344 2023] [mpm_winnt:notice] [pid 23548:tid 312] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Thu Mar 02 13:32:10.508855 2023] [mpm_winnt:notice] [pid 23548:tid 312] AH00431: Parent: Forcing termination of child process 25924
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 13:34:56.022280 2023] [mpm_winnt:notice] [pid 18288:tid 356] AH00455: Apache/2.4.55 (Win64) PHP/8.2.3 configured -- resuming normal operations
+[Thu Mar 02 13:34:56.022280 2023] [mpm_winnt:notice] [pid 18288:tid 356] AH00456: Apache Lounge VS17 Server built: Feb  9 2023 09:58:39
+[Thu Mar 02 13:34:56.022280 2023] [core:notice] [pid 18288:tid 356] AH00094: Command line: 'C:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Thu Mar 02 13:34:56.030282 2023] [mpm_winnt:notice] [pid 18288:tid 356] AH00418: Parent: Created child process 22780
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 13:34:58.259096 2023] [mpm_winnt:notice] [pid 22780:tid 164] AH00354: Child: Starting 64 worker threads.
+[Thu Mar 02 14:34:19.296310 2023] [mpm_winnt:notice] [pid 18288:tid 356] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Thu Mar 02 14:34:49.306005 2023] [mpm_winnt:notice] [pid 18288:tid 356] AH00431: Parent: Forcing termination of child process 22780
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 15:36:06.647318 2023] [mpm_winnt:notice] [pid 18764:tid 356] AH00455: Apache/2.4.55 (Win64) PHP/8.2.3 configured -- resuming normal operations
+[Thu Mar 02 15:36:06.647318 2023] [mpm_winnt:notice] [pid 18764:tid 356] AH00456: Apache Lounge VS17 Server built: Feb  9 2023 09:58:39
+[Thu Mar 02 15:36:06.647318 2023] [core:notice] [pid 18764:tid 356] AH00094: Command line: 'C:\\Apache24\\bin\\httpd.exe -d C:/Apache24'
+[Thu Mar 02 15:36:06.655319 2023] [mpm_winnt:notice] [pid 18764:tid 356] AH00418: Parent: Created child process 22896
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::e02a:8568:1b4f:3889. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 02 15:36:09.180036 2023] [mpm_winnt:notice] [pid 22896:tid 332] AH00354: Child: Starting 64 worker threads.
